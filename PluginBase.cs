@@ -46,8 +46,6 @@ namespace Aaru.CommonTypes
     /// <summary>Contain all plugins (filesystem, partition and image)</summary>
     public class PluginBase
     {
-        /// <summary>List of all archive formats</summary>
-        public readonly SortedDictionary<string, IArchive> Archives;
         /// <summary>List of checksum plugins</summary>
         public readonly List<IChecksum> Checksums;
         /// <summary>List of filter plugins</summary>
@@ -79,7 +77,6 @@ namespace Aaru.CommonTypes
             Filters              = new SortedDictionary<string, IFilter>();
             FloppyImages         = new SortedDictionary<string, IFloppyImage>();
             WritableFloppyImages = new SortedDictionary<string, IWritableFloppyImage>();
-            Archives             = new SortedDictionary<string, IArchive>();
         }
 
         /// <summary>Adds plugins to the central plugin register</summary>
@@ -138,12 +135,6 @@ namespace Aaru.CommonTypes
                                                                     {}) is IWritableImage plugin &&
                    !WritableImages.ContainsKey(plugin.Name.ToLower()))
                     WritableImages.Add(plugin.Name.ToLower(), plugin);
-
-            foreach(Type type in pluginRegister.GetAllArchivePlugins() ?? Enumerable.Empty<Type>())
-                if(type.GetConstructor(Type.EmptyTypes)?.Invoke(new object[]
-                                                                    {}) is IArchive plugin &&
-                   !Archives.ContainsKey(plugin.Name.ToLower()))
-                    Archives.Add(plugin.Name.ToLower(), plugin);
         }
     }
 }
