@@ -46,9 +46,10 @@ public interface IWritableFluxImage : IFluxImage, IWritableImage
 {
     /// <summary>Writes a flux capture.</summary>
     /// <returns>Error number</returns>
-    /// <param name="resolution">The capture's resolution (sample rate) in picoseconds</param>
-    /// <param name="index">Flux representation of the index signal</param>
-    /// <param name="data">Flux representation of the data signal</param>
+    /// <param name="indexResolution">The capture's index resolution (sample rate) in picoseconds</param>
+    /// <param name="dataResolution">The capture's data resolution (sample rate) in picoseconds</param>
+    /// <param name="indexBuffer">Flux representation of the index signal</param>
+    /// <param name="dataBuffer">Flux representation of the data signal</param>
     /// <param name="head">Physical head (0-based)</param>
     /// <param name="track">Physical track (position of the heads over the floppy media, 0-based)</param>
     /// <param name="subTrack">Physical sub-step of track (e.g. half-track)</param>

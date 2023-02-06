@@ -45,6 +45,15 @@ namespace Aaru.CommonTypes.Interfaces;
 public interface IFluxImage : IBaseImage
 {
     /// <summary>
+    ///     An image may have tracks split into sub-steps. This returns the highest sub-step index for the track.
+    /// </summary>
+    /// <returns>Error number</returns>
+    /// <param name="head">Physical head (0-based)</param>
+    /// <param name="track">Physical track (position of the heads over the floppy media, 0-based)</param>
+    /// <param name="length">The number of captures</param>
+    ErrorNumber SubTrackLength(uint head, ushort track, out byte length);
+
+    /// <summary>
     ///     An image may have more than one capture for a specific head/track/sub-track combination. This returns
     ///     the amount of captures in the image for the specified head/track/sub-track combination.
     /// </summary>
