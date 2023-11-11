@@ -114,7 +114,7 @@ public enum SectorTagType
     /// <summary>DVD sector title key, 5 bytes</summary>
     DvdSectorTitleKey = 14,
     /// <summary>Decrypted DVD sector title key, 5 bytes</summary>
-    DvdTitleKeyDecrypted = 15,
+    DvdSectorTitleKeyDecrypted = 15,
     /// <summary>DVD sector information, 1 bytes</summary>
     DvdSectorInformation = 16,
     /// <summary>DVD sector number, 3 bytes</summary>
@@ -122,7 +122,9 @@ public enum SectorTagType
     /// <summary>DVD sector ID error detection, 2 bytes</summary>
     DvdSectorIed = 18,
     /// <summary>DVD sector EDC, 4 bytes</summary>
-    DvdSectorEdc = 19
+    DvdSectorEdc = 19,
+    /// <summary>The seed used for scrambling the DVD sector</summary>
+    DvdSectorScramblingSeed = 20
 }
 
 /// <summary>Metadata present for each media.</summary>
